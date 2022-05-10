@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const TurkishText = () => {
-  return (
-    <div>TurkishText</div>
-  )
-}
+const TurkishText = () => (
+  <div>TurkishText</div>
+);
 
-export default TurkishText
+export default TurkishText;
