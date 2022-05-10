@@ -1,7 +1,9 @@
+import EnglishText from "../components/EnglishText";
+
 function App() {
   return (
     <div className="App">
-      Hello
+      <EnglishText />
     </div>
   );
 }
