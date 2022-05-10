@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const EnglishText = () => {
-  return (
-    <textarea></textarea>
-  )
-}
+const EnglishText = () => (
+  <textarea />
+);
 
-export default EnglishText
+export default EnglishText;

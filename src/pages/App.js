@@ -1,4 +1,4 @@
-import EnglishText from "../components/EnglishText";
+import EnglishText from '../components/EnglishText';
 
 function App() {
   return (
