@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const EnglishText = ({ startVoiceRecognition }) => (
   <>
@@ -11,5 +11,11 @@ const EnglishText = ({ startVoiceRecognition }) => (
     </button>
   </>
 );
+
+EnglishText.propTypes = {
+  startVoiceRecognition: PropTypes.shape({
+    startVoiceRecognition: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default EnglishText;
