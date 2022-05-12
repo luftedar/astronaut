@@ -2,8 +2,12 @@ import PropTypes from 'prop-types';
 
 const EnglishText = ({ text }) => (
   <>
-    <textarea />
+    <textarea placeholder={text} />
   </>
 );
+
+EnglishText.propTypes = {
+  text: PropTypes.string.isRequired,
+};
 
 export default EnglishText;
