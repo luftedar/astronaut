@@ -4,8 +4,8 @@ const EnglishText = ({ startVoiceRecognition }) => (
   <>
     <textarea />
     <button
-    type="submit"
-    onClick={startVoiceRecognition}
+      type="submit"
+      onClick={startVoiceRecognition}
     >
       Speak
     </button>
