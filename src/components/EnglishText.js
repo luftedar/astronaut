@@ -5,7 +5,9 @@ const EnglishText = ({ startVoiceRecognition }) => (
     <textarea />
     <button
       type="submit"
-      onClick={startVoiceRecognition}
+      onClick={() => {
+        startVoiceRecognition.start();
+      }}
     >
       Speak
     </button>
@@ -14,7 +16,7 @@ const EnglishText = ({ startVoiceRecognition }) => (
 
 EnglishText.propTypes = {
   startVoiceRecognition: PropTypes.shape({
-    startVoiceRecognition: PropTypes.func.isRequired,
+    start: PropTypes.func,
   }).isRequired,
 };
 

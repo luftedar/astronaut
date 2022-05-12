@@ -7,7 +7,7 @@ function App() {
   const voiceRecognition = useVoice();
   return (
     <div className="App">
-      <EnglishText startVoiceRecognition={voiceRecognition.start()} />
+      <EnglishText startVoiceRecognition={voiceRecognition} />
       <TurkishText />
       <History />
     </div>
