@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const EnglishText = ({text}) => (
+const EnglishText = ({ text }) => (
   <>
     <textarea />
   </>
