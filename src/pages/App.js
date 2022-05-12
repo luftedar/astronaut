@@ -9,7 +9,6 @@ function App() {
   const [textState, setTextState] = useState('');
   voiceRecognition.onresult = (event) => {
     setTextState(event.results[0][0].transcript);
-    console.log('ASIL', event.results[0][0].transcript);
   };
   return (
     <div className="App">
