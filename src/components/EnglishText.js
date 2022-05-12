@@ -1,7 +1,15 @@
 import React from 'react';
 
-const EnglishText = () => (
-  <textarea />
+const EnglishText = ({ startVoiceRecognition }) => (
+  <>
+    <textarea />
+    <button
+    type="submit"
+    onClick={startVoiceRecognition}
+    >
+      Speak
+    </button>
+  </>
 );
 
 export default EnglishText;
