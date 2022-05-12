@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const EnglishText = ({ text }) => (
   <>
-    <textarea placeholder={text} />
+    <textarea value={text} />
   </>
 );
 
