@@ -17,4 +17,4 @@ const postTranslationData = async (englishSentence) => {
   return translationResult;
 };
 
-export default postTranslationData;
+export {postTranslationData};
