@@ -12,9 +12,9 @@ const postTranslationData = async (englishSentence) => {
       target: 'tr',
       format: 'text',
     }),
-    headers: { 'Content-Type': 'applcation/json' },
-  }).then((response) => { response.translatedText; });
+    headers: { 'Content-Type': 'application/json' },
+  }).then((response) => response.translatedText);
   return translationResult;
 };
 
-export { postTranslationData };
+export default postTranslationData;

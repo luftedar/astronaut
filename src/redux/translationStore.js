@@ -4,7 +4,7 @@ const POST_TRANSLATION = 'POST_TRANSLATION';
 const initialState = [];
 
 export const postTranslation = (englishSentece) => async (dispatch) => {
-  const turkishWord = await apiCalls.postTranslationData(englishSentece);
+  const turkishWord = await apiCalls.default.postTranslationData(englishSentece);
   dispatch({
     type: POST_TRANSLATION,
     payload: turkishWord,
