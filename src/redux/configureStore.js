@@ -1,6 +1,6 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import translationReducer from "./translationStore";
+import translationReducer from './translationStore';
 
 const reducer = combineReducers({
   translationReducer,
