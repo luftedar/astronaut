@@ -1,7 +1,10 @@
-import React from 'react';
+import { useSelector } from 'react-redux';
 
-const TurkishText = () => (
-  <div>TurkishText</div>
-);
+const TurkishText = () => {
+  const translationResults = useSelector((state) => state.translationReducer);
+  return (
+    <textarea disabled value={translationResults[translationResults.length - 1]} />
+  );
+};
 
 export default TurkishText;

@@ -14,7 +14,7 @@ const EnglishText = ({ text }) => {
       if (translationValue !== '') {
         dispatch(postTranslation(translationValue));
       }
-    }, 250);
+    }, 500);
     return () => clearTimeout(filled);
   }, [translationValue]);
   return (
