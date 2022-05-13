@@ -1,19 +1,13 @@
-import axios from 'axios';
-
-const libreTranslateEndPoint = 'https://libretranslate.com/translate';
-
 const postTranslationData = async (englishSentence) => {
-  const translationResult = await axios({
-    method: 'post',
-    url: libreTranslateEndPoint,
+  const translationResult = await fetch('https://translate.argosopentech.com/translate', {
+    method: 'POST',
     body: JSON.stringify({
       q: `${englishSentence}`,
       source: 'en',
       target: 'tr',
-      format: 'text',
     }),
     headers: { 'Content-Type': 'application/json' },
-  }).then((response) => response.translatedText);
+  }).then((res) => res.json()).then((result) => result.translatedText);
   return translationResult;
 };
 

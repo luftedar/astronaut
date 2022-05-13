@@ -1,13 +1,23 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { postTranslation } from '../redux/translationStore';
 
 const EnglishText = ({ text }) => {
+  const dispatch = useDispatch();
   const [translationValue, setTranslationValue] = useState('');
   useEffect(() => {
     setTranslationValue(text);
   }, [text]);
+  useEffect(() => {
+    const filled = setTimeout(() => {
+      if (translationValue !== '') {
+        dispatch(postTranslation(translationValue));
+      }
+    }, 250);
+    return () => clearTimeout(filled);
+  }, [translationValue]);
   return (
-
     <>
       <textarea
         value={translationValue}
