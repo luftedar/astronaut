@@ -3,11 +3,11 @@ import postTranslationData from '../service/services';
 const POST_TRANSLATION = 'POST_TRANSLATION';
 const initialState = [];
 
-export const postTranslation = (englishSentece) => async (dispatch) => {
-  const turkishWord = await postTranslationData(englishSentece);
+export const postTranslation = (englishSentence) => async (dispatch) => {
+  const turkishSentence = await postTranslationData(englishSentence);
   dispatch({
     type: POST_TRANSLATION,
-    payload: turkishWord,
+    payload: [englishSentence, turkishSentence],
   });
 };
 

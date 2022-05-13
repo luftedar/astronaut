@@ -8,7 +8,11 @@ const History = () => {
     <div>
       <ul>
         {translationHistory.map((history) => (
-          <li key={uuid()}>{history}</li>
+          <li key={uuid()}>
+            {history[0]}
+            {' => '}
+            {history[1]}
+          </li>
         ))}
       </ul>
     </div>
