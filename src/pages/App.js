@@ -3,6 +3,7 @@ import useVoice from '../helpers/useVoice';
 import EnglishText from '../components/EnglishText';
 import TurkishText from '../components/TurkishText';
 import History from '../components/History';
+import '../styles/App.scss';
 
 function App() {
   const voiceRecognition = useVoice();
