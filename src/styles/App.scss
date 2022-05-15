@@ -1,9 +1,20 @@
 @import 'utilities';
 
 .app {
-  @extend %flex-display-col;
+  @extend %flex-display;
 }
 
 .textarea-container {
-  @extend %flex-display;
+  @extend %flex-display-col;
+  @extend %flex-center;
+  width: 100%;
+}
+
+textarea {
+  @extend %text-area
+}
+
+.english-container,
+.turkish-container {
+  width: 100%;
 }
