@@ -27,7 +27,7 @@ function App() {
         </div>
         <div className="turkish-container">
           <TurkishText />
-        </div>        
+        </div>
       </div>
       <div className="history-container">
         <History />
