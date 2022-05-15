@@ -1,7 +1,8 @@
 @import 'utilities';
 
 .app {
-  @extend %flex-display;
+  @extend %flex-display-col;
+  @extend %flex-center;
 }
 
 .textarea-container {
@@ -17,4 +18,14 @@ textarea {
 .english-container,
 .turkish-container {
   width: 100%;
+}
+
+.english-container {
+  position: relative;
+
+  button {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+  }
 }
