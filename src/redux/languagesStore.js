@@ -2,9 +2,13 @@ import * as service from '../service/services';
 
 const FETCH_LANGUAGES = 'FETCH_LANGUAGES';
 
-const initialState = [];
+const initialState = {
+  currentInput: 'en',
+  currentOutput: 'tr',
+  languages: [],
+};
 
-export const fetchAllLanugages = () => async (dispatch) => {
+export const fetchAllLanguages = () => async (dispatch) => {
   const languageData = await service.getAllLanguages();
   dispatch({
     type: FETCH_LANGUAGES,
@@ -15,7 +19,11 @@ export const fetchAllLanugages = () => async (dispatch) => {
 const languagesReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_LANGUAGES:
-      return [...action.payload];
+      return {
+        currentInput: state.currentInput,
+        currentOutput: state.currentOutput,
+        languages: [...action.payload],
+      };
     default:
       return state;
   }
