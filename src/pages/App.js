@@ -13,17 +13,25 @@ function App() {
   };
   return (
     <div className="App">
-      <EnglishText text={textState} />
-      <TurkishText />
-      <button
-        type="submit"
-        onClick={() => {
-          voiceRecognition.start();
-        }}
-      >
-        Speak
-      </button>
-      <History />
+      <div className="textarea-container">
+        <div className="english-container">
+          <EnglishText text={textState} />
+          <button
+            type="submit"
+            onClick={() => {
+              voiceRecognition.start();
+            }}
+          >
+            Speak
+          </button>
+        </div>
+        <div className="turkish-container">
+          <TurkishText />
+        </div>        
+      </div>
+      <div className="history-container">
+        <History />
+      </div>
     </div>
   );
 }
