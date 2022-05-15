@@ -6,8 +6,9 @@ const initialState = {
   mobileResult: false,
 };
 
-export const postTranslation = (englishSentence) => async (dispatch) => {
-  const turkishSentence = englishSentence !== '' && await services.postTranslationData(englishSentence);
+export const postTranslation = (input, output, englishSentence) => async (dispatch) => {
+  const turkishSentence = englishSentence !== ''
+  && await services.postTranslationData(input, output, englishSentence);
   dispatch({
     type: POST_TRANSLATION,
     payload: [englishSentence, turkishSentence === false ? '' : turkishSentence],

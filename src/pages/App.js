@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { GrHistory } from 'react-icons/gr';
 import { FaMicrophone } from 'react-icons/fa';
 import useVoice from '../helpers/useVoice';
@@ -8,21 +8,65 @@ import TurkishText from '../components/TurkishText';
 import History from '../components/History';
 import '../styles/App.scss';
 import { changeInputValue } from '../redux/inputStore';
+import { changeInputLanguage, changeOutputLanguage, fetchAllLanguages } from '../redux/languagesStore';
 
 function App() {
   const dispatch = useDispatch();
+  const languagesState = useSelector((state) => state.languagesReducer);
   const voiceRecognition = useVoice();
   const [textState, setTextState] = useState('');
-  const [showHistoryState, setShowHistoryState] = useState('');
-  const [listeningState, setListeningState] = useState(false);
+  const [showHistoryState, setShowHistoryState] = useState(true);
+  const [listeningState, setListeningState] = useState('');
   voiceRecognition.onresult = (event) => {
     setTextState(event.results[0][0].transcript);
     dispatch(changeInputValue(event.results[0][0].transcript));
     setListeningState('');
   };
+  useEffect(() => {
+    dispatch(fetchAllLanguages());
+  }, [dispatch]);
+  console.log(languagesState);
   return (
     <div className="app">
-      <h1>English to Turkish</h1>
+      <div>
+        <select
+          name="inputValue"
+          id="inputValue"
+          onChange={(e) => {
+            dispatch(changeInputLanguage(e.target.value));
+            console.log(e.target.value);
+          }}
+        >
+          {
+            languagesState.languages.map((language) => (
+              <option
+                value={language.code}
+                key={language.code}
+              >
+                {language.name}
+              </option>
+            ))
+}
+        </select>
+        <select
+          name="outputValue"
+          id="outputValue"
+          onChange={(e) => {
+            dispatch(changeOutputLanguage(e.target.value));
+          }}
+        >
+          {
+            languagesState.languages.map((language) => (
+              <option
+                value={language.code}
+                key={language.code}
+              >
+                {language.name}
+              </option>
+            ))
+}
+        </select>
+      </div>
       <div className="textarea-container">
         <div className="english-container">
           <EnglishText text={textState} />
@@ -46,7 +90,6 @@ function App() {
           type="button"
           onClick={() => {
             setShowHistoryState(!showHistoryState);
-            setListeningState(!listeningState);
           }}
         >
           <GrHistory />

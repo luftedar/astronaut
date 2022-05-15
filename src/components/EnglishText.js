@@ -6,6 +6,7 @@ import { postTranslation } from '../redux/translationStore';
 
 const EnglishText = ({ text }) => {
   const inputState = useSelector((state) => state.inputReducer);
+  const languageState = useSelector((state) => state.languagesReducer);
   const dispatch = useDispatch();
   const [translationValue, setTranslationValue] = useState('');
   useEffect(() => {
@@ -13,10 +14,12 @@ const EnglishText = ({ text }) => {
   }, [text]);
   useEffect(() => {
     const filled = setTimeout(() => {
-      dispatch(postTranslation(translationValue));
+      dispatch(postTranslation(languageState.currentInput,
+        languageState.currentOutput,
+        translationValue));
     }, 500);
     return () => clearTimeout(filled);
-  }, [translationValue]);
+  }, [translationValue, languageState]);
   return (
     <>
       <textarea
