@@ -13,8 +13,8 @@ function App() {
   const dispatch = useDispatch();
   const voiceRecognition = useVoice();
   const [textState, setTextState] = useState('');
-  const [showHistoryState, setShowHistoryState] = useState('');
-  const [listeningState, setListeningState] = useState(false);
+  const [showHistoryState, setShowHistoryState] = useState(true);
+  const [listeningState, setListeningState] = useState('');
   voiceRecognition.onresult = (event) => {
     setTextState(event.results[0][0].transcript);
     dispatch(changeInputValue(event.results[0][0].transcript));

@@ -1,5 +1,13 @@
 @import 'utilities';
 
+.isChrome {
+  @extend %flex-display-col;
+  @extend %flex-center;
+  width: 100vw;
+  height: 100vh;
+  font-size: 5rem;
+}
+
 .app {
   @extend %flex-display-col;
   @extend %flex-center;
