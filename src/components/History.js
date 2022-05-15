@@ -9,10 +9,13 @@ const History = () => {
       <h2> History </h2>
       <ul>
         {translationHistory.map((history) => (
+          history[0] !== '' && history[1] !== ''
+          && (
           <li key={uuid()}>
             <p className="english-result">{history[0]}</p>
             <p className="turkish-result">{history[1]}</p>
           </li>
+          )
         ))}
       </ul>
     </div>
