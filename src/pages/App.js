@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { GrHistory } from 'react-icons/gr';
 import { FaMicrophone } from 'react-icons/fa';
 import useVoice from '../helpers/useVoice';
@@ -6,13 +7,18 @@ import EnglishText from '../components/EnglishText';
 import TurkishText from '../components/TurkishText';
 import History from '../components/History';
 import '../styles/App.scss';
+import { changeInputValue } from '../redux/inputStore';
 
 function App() {
+  const dispatch = useDispatch();
   const voiceRecognition = useVoice();
   const [textState, setTextState] = useState('');
-  const [showHistoryState, setShowHistoryState] = useState(true);
+  const [showHistoryState, setShowHistoryState] = useState('');
+  const [listeningState, setListeningState] = useState(false);
   voiceRecognition.onresult = (event) => {
     setTextState(event.results[0][0].transcript);
+    dispatch(changeInputValue(event.results[0][0].transcript));
+    setListeningState('');
   };
   return (
     <div className="app">
@@ -22,8 +28,10 @@ function App() {
           <EnglishText text={textState} />
           <button
             type="submit"
+            className={listeningState}
             onClick={() => {
               voiceRecognition.start();
+              setListeningState('listening');
             }}
           >
             <FaMicrophone />
@@ -38,6 +46,7 @@ function App() {
           type="button"
           onClick={() => {
             setShowHistoryState(!showHistoryState);
+            setListeningState(!listeningState);
           }}
         >
           <GrHistory />
