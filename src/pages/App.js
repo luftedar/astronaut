@@ -12,7 +12,7 @@ function App() {
     setTextState(event.results[0][0].transcript);
   };
   return (
-    <div className="App">
+    <div className="app">
       <div className="textarea-container">
         <div className="english-container">
           <EnglishText text={textState} />

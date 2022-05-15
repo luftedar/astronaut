@@ -1,3 +1,9 @@
-* {
-  margin: 0;
+@import 'utilities';
+
+.app {
+  @extend %flex-display-col;
+}
+
+.textarea-container {
+  @extend %flex-display;
 }
