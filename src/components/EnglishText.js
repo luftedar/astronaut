@@ -20,6 +20,7 @@ const EnglishText = ({ text }) => {
   return (
     <>
       <textarea
+        className="text-area"
         value={translationValue}
         onChange={(e) => {
           setTranslationValue(e.target.value);

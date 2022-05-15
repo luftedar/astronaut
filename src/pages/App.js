@@ -14,6 +14,7 @@ function App() {
   };
   return (
     <div className="app">
+      <h1>English to Turkish</h1>
       <div className="textarea-container">
         <div className="english-container">
           <EnglishText text={textState} />
@@ -35,7 +36,6 @@ function App() {
           type="button"
           onClick={() => {
             setShowHistoryState(!showHistoryState);
-            console.log(showHistoryState);
           }}
         >
           See History
