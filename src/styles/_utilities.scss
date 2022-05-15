@@ -23,6 +23,7 @@ body {
 
 %flex-display-col {
   @extend %flex-display;
+
   flex-direction: column;
 }
 
@@ -63,6 +64,7 @@ body {
 %icon-button {
   @extend %flex-display;
   @extend %flex-center;
+
   background-color: $white;
   border: $border-type;
   border-radius: 50%;
