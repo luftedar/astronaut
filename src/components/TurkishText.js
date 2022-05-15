@@ -2,10 +2,18 @@ import { useSelector } from 'react-redux';
 
 const TurkishText = () => {
   const translationResults = useSelector((state) => state.translationReducer);
+  console.log(translationResults);
   return (
-    translationResults.length !== 0
-      ? <textarea value={(translationResults[translationResults.length - 1])[1]} className="turkish-text-area" />
-      : <textarea className="turkish-text-area" />
+    translationResults.translationHistory.length !== 0
+      ? (
+        <textarea
+          value={(
+            translationResults.translationHistory[
+              translationResults.translationHistory.length - 1])[1]}
+          className={translationResults.mobileResult === false ? 'turkish-text-area hide' : 'turkish-text-area'}
+        />
+      )
+      : <textarea className={translationResults.mobileResult === false ? 'turkish-text-area hide' : 'turkish-text-area'} />
   );
 };
 

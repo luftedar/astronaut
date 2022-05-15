@@ -122,3 +122,11 @@ button {
 .history-button {
   margin-top: 40px;
 }
+
+.hide {
+  display: none;
+
+  @include breakpoints(1080px) {
+    display: block;
+  } 
+}

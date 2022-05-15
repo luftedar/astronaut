@@ -8,7 +8,7 @@ const History = () => {
     <div>
       <h2> History </h2>
       <ul>
-        {translationHistory.map((history) => (
+        {translationHistory.translationHistory.map((history) => (
           history[0] !== '' && history[1] !== ''
           && (
           <li key={uuid()}>
