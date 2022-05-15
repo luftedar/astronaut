@@ -1,5 +1,6 @@
 $grey: rgba(0, 0, 0, 0.164);
 $secondary-grey: rgba(0, 0, 0, 0.575);
+$background-grey: rgba(0, 0, 0, 0.014);
 $blue: rgb(72, 133, 237);
 $white: rgb(255, 255, 255);
 $border-type: 1px solid $grey;
@@ -9,6 +10,10 @@ $border-type: 1px solid $grey;
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
+}
+
+body {
+  background-color: $background-grey;
 }
 
 %flex-display {
@@ -51,4 +56,13 @@ $border-type: 1px solid $grey;
   transition: 1s ease;
   transform: translateX(100%);
   overflow-y: auto;
+}
+
+%icon-button {
+  @extend %flex-display;
+  @extend %flex-center;
+  background-color: $white;
+  border: $border-type;
+  border-radius: 50%;
+  padding: 15px;
 }

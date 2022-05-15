@@ -7,7 +7,7 @@
   h1 {
     margin: 15px;
     font-size: 1.4rem;
-    color: $blue;
+    color: $secondary-grey;
   }
 }
 
@@ -78,4 +78,8 @@
 
 .show {
   transform: translateX(0);
+}
+
+button {
+  @extend %icon-button;
 }

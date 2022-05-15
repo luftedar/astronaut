@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { GrHistory } from 'react-icons/gr';
+import { FaMicrophone } from 'react-icons/fa';
 import useVoice from '../helpers/useVoice';
 import EnglishText from '../components/EnglishText';
 import TurkishText from '../components/TurkishText';
@@ -24,7 +26,7 @@ function App() {
               voiceRecognition.start();
             }}
           >
-            Speak
+            <FaMicrophone />
           </button>
         </div>
         <div className="turkish-container">
@@ -38,7 +40,7 @@ function App() {
             setShowHistoryState(!showHistoryState);
           }}
         >
-          See History
+          <GrHistory />
         </button>
       </div>
       <div
