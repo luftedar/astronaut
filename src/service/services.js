@@ -1,5 +1,7 @@
+const API_URL = 'https://translate.argosopentech.com/'
+
 const postTranslationData = async (englishSentence) => {
-  const translationResult = await fetch('https://translate.argosopentech.com/translate', {
+  const translationResult = await fetch(`${API_URL}translate`, {
     method: 'POST',
     body: JSON.stringify({
       q: `${englishSentence}`,
@@ -11,4 +13,13 @@ const postTranslationData = async (englishSentence) => {
   return translationResult;
 };
 
-export default postTranslationData;
+const getAllLanguages = async () => {
+  const languages = await fetch(`${API_URL}languages`)
+
+  return languages;
+}
+
+export {
+  postTranslationData,
+  getAllLanguages
+};
