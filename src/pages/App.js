@@ -8,6 +8,7 @@ import '../styles/App.scss';
 function App() {
   const voiceRecognition = useVoice();
   const [textState, setTextState] = useState('');
+  const [showHistoryState, setShowHistoryState] = useState(true);
   voiceRecognition.onresult = (event) => {
     setTextState(event.results[0][0].transcript);
   };
@@ -29,7 +30,24 @@ function App() {
           <TurkishText />
         </div>
       </div>
-      <div className="history-container">
+      <div className="history-button">
+        <button
+          type="button"
+          onClick={() => {
+            setShowHistoryState(!showHistoryState);
+            console.log(showHistoryState);
+          }}
+        >
+          See History
+        </button>
+      </div>
+      <div
+        className={
+        showHistoryState
+          ? 'history-container'
+          : 'history-container show'
+      }
+      >
         <History />
       </div>
     </div>

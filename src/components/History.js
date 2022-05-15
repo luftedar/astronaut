@@ -5,17 +5,15 @@ import uuid from 'react-uuid';
 const History = () => {
   const translationHistory = useSelector((state) => state.translationReducer);
   return (
-    <div>
-      <ul>
-        {translationHistory.map((history) => (
-          <li key={uuid()}>
-            {history[0]}
-            {' => '}
-            {history[1]}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {translationHistory.map((history) => (
+        <li key={uuid()}>
+          {history[0]}
+          {' => '}
+          {history[1]}
+        </li>
+      ))}
+    </ul>
   );
 };
 

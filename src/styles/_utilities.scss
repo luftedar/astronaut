@@ -41,4 +41,19 @@ $max-width: 100%;
   }
 }
 
+.history-container {
+  position: fixed;
+  width: 40%;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  transition: 1s ease;
+  transform: translateX(100%);
+  background-color: red;
+}
+
+.show {
+  transform: translateX(0);
+}
+
 
