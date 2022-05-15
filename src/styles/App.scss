@@ -130,3 +130,9 @@ button {
     display: block;
   }
 }
+
+.no-button {
+  cursor: pointer;
+  padding: 0 !important;
+  border: none !important;
+}

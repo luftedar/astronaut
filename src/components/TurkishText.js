@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 
 const TurkishText = () => {
   const translationResults = useSelector((state) => state.translationReducer);
-  console.log(translationResults);
   return (
     translationResults.translationHistory.length !== 0
       ? (

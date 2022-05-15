@@ -17,7 +17,6 @@ export const postTranslation = (englishSentence) => async (dispatch) => {
 const translationReducer = (state = initialState, action) => {
   switch (action.type) {
     case POST_TRANSLATION:
-      console.log(action.payload);
       return {
         mobileResult: action.payload[0] !== '',
         translationHistory: [...state.translationHistory, action.payload],

@@ -1,8 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import uuid from 'react-uuid';
+import { changeInputValue } from '../redux/inputStore';
+import { postTranslation } from '../redux/translationStore';
 
 const History = () => {
+  const dispatch = useDispatch();
   const translationHistory = useSelector((state) => state.translationReducer);
   return (
     <div>
@@ -12,7 +15,16 @@ const History = () => {
           history[0] !== '' && history[1] !== ''
           && (
           <li key={uuid()}>
-            <p className="english-result">{history[0]}</p>
+            <button
+              type="button"
+              className="english-result no-button"
+              onClick={(e) => {
+                dispatch(postTranslation(e.target.innerText));
+                dispatch(changeInputValue(e.target.innerText));
+              }}
+            >
+              {history[0]}
+            </button>
             <p className="turkish-result">{history[1]}</p>
           </li>
           )
