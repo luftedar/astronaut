@@ -11,9 +11,7 @@ const EnglishText = ({ text }) => {
   }, [text]);
   useEffect(() => {
     const filled = setTimeout(() => {
-      if (translationValue !== '') {
-        dispatch(postTranslation(translationValue));
-      }
+      dispatch(postTranslation(translationValue));
     }, 500);
     return () => clearTimeout(filled);
   }, [translationValue]);
