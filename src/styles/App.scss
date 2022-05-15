@@ -15,10 +15,24 @@
   @extend %flex-display-col;
   @extend %flex-center;
   width: 100%;
+
+  @include breakpoints(1080px) {
+    @extend %flex-display;
+    flex-direction: row !important;
+    width: 90%;
+  }
 }
 
 .text-area {
   @extend %text-area;
+
+  @include breakpoints(1080px) {
+    border: 1px solid $grey;
+  }
+
+  &:focus {
+    border: $border-type;
+  }
 }
 
 .turkish-text-area {
@@ -26,6 +40,12 @@
   pointer-events: none;
   color: $white;
   background-color: $blue;
+
+  @include breakpoints(1080px) {
+    background-color: $background-grey;
+    color: $black;
+    border: $border-type;
+  }
 }
 
 .english-container,
@@ -36,11 +56,23 @@
 .english-container {
   position: relative;
   margin-bottom: -5px;
+  
 
   button {
     position: absolute;
     right: 5%;
     bottom: 10%;
+  }
+
+  @include breakpoints(1080px) {
+    margin-right: 25px;
+    margin-bottom: 0;
+  }
+}
+
+.turkish-container {
+  @include breakpoints(1080px) {
+    margin-left: 25px;
   }
 }
 
