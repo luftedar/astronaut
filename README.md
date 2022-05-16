@@ -2,19 +2,7 @@
 
 # Translator
 
-> Imagine it's the year 2035 and you are an
-astronaut stuck in a broken spaceship
-somewhere within the solar system. Your only
-hope is to fix the spaceship before the oxygen
-runs out. Luckily, thanks to your engineering
-skills, you were able to isolate the problem which
-is a bug within engine firmware.
-The good news is that it’s only a software
-problem that can be solved just by writing or
-speaking the right commands to the computer.
-The bad news is that the computer only understands Turkish.
-The people at the command center on Earth can help you but they
-only speak English.
+> A translator that can translate both spoken and written English to Turkish.
 
 ---
 
