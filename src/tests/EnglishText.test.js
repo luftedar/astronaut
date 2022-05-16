@@ -1,14 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { store } from '../../redux/configureStore';
-import TurkishText from '../../components/TurkishText';
+import { store } from '../redux/configureStore';
+import EnglishText from '../components/EnglishText';
 
-describe('TurkishText page is working', () => {
-  test('Renders TurkishText', () => {
+describe('EnglishText page is working', () => {
+  test('Renders EnglishText', () => {
     const tree = render(
       <Provider store={store}>
-        <TurkishText />
+        <EnglishText text="Hello" />
       </Provider>,
     );
     expect(tree).toMatchSnapshot();
