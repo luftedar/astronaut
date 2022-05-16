@@ -80,11 +80,10 @@ npm test
 
 ## Authors
 
-👤 **Author1**
+👤 **Orçun Uğur**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [luftedar](https://github.com/luftedar)
+- LinkedIn: [orcunugur](https://www.linkedin.com/in/orcunugur)
 
 ## 🤝 Contributing
 
