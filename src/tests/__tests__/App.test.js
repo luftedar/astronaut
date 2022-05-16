@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import {store} from '../../redux/configureStore'
+import { store } from '../../redux/configureStore';
 import App from '../../pages/App';
 
 describe('App page is working', () => {
@@ -10,10 +10,8 @@ describe('App page is working', () => {
     const tree = render(
       <Provider store={store}>
         {isChrome
-         &&
-         <App />
-        }
-      </Provider>
+         && <App />}
+      </Provider>,
     );
     expect(tree).toMatchSnapshot();
   });
