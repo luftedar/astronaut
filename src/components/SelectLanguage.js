@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 const SelectLanguage = ({ name, languages }) => {
-  console.log(languages);
   return (
     <select name={name}>
       {

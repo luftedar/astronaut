@@ -25,7 +25,6 @@ function App() {
   useEffect(() => {
     dispatch(fetchAllLanguages());
   }, [dispatch]);
-  console.log(languagesState);
   return (
     <div className="app">
       <div>
