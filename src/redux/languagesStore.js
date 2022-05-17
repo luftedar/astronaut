@@ -8,6 +8,7 @@ const initialState = {
   currentInput: 'en',
   currentOutput: 'tr',
   languages: [],
+  loading: true,
 };
 
 export const fetchAllLanguages = () => async (dispatch) => {
@@ -35,18 +36,21 @@ const languagesReducer = (state = initialState, action) => {
         currentInput: state.currentInput,
         currentOutput: state.currentOutput,
         languages: [...action.payload],
+        loading: false,
       };
     case CHANGE_INPUT:
       return {
         currentInput: action.payload,
         currentOutput: state.currentOutput,
         languages: [...state.languages],
+        loading: state.loading,
       };
     case CHANGE_OUTPUT:
       return {
         currentInput: state.currentInput,
         currentOutput: action.payload,
         languages: [...state.languages],
+        loading: state.loading,
       };
     default:
       return state;

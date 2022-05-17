@@ -33,7 +33,6 @@ function App() {
           id="inputValue"
           onChange={(e) => {
             dispatch(changeInputLanguage(e.target.value));
-            console.log(e.target.value);
           }}
         >
           {
@@ -45,7 +44,7 @@ function App() {
                 {language.name}
               </option>
             ))
-}
+          }
         </select>
         <select
           name="outputValue"
@@ -53,17 +52,21 @@ function App() {
           onChange={(e) => {
             dispatch(changeOutputLanguage(e.target.value));
           }}
+          defaultValue="tr"
         >
           {
             languagesState.languages.map((language) => (
-              <option
-                value={language.code}
-                key={language.code}
-              >
-                {language.name}
-              </option>
+              (
+                <option
+                  selected={language.name === 'Turkish' && true}
+                  value={language.code}
+                  key={language.code}
+                >
+                  {language.name}
+                </option>
+              )
             ))
-}
+          }
         </select>
       </div>
       <div className="textarea-container">

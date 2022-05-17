@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 
-const SelectLanguage = ({ name, languages }) => {
-  return (
-    <select name={name}>
-      {
+const SelectLanguage = ({ name, languages }) => (
+  <select name={name}>
+    {
     languages.map((language) => (
       <option
         value={language.code}
@@ -13,9 +12,8 @@ const SelectLanguage = ({ name, languages }) => {
       </option>
     ))
 }
-    </select>
-  );
-};
+  </select>
+);
 
 SelectLanguage.propTypes = {
   languages: {
