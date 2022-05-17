@@ -1,52 +1,86 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Translator
 
-> Description the project.
+> Imagine it's the year 2035 and you are an
+astronaut stuck in a broken spaceship
+somewhere within the solar system. Your only
+hope is to fix the spaceship before the oxygen
+runs out. Luckily, thanks to your engineering
+skills, you were able to isolate the problem which
+is a bug within engine firmware.
+The good news is that it’s only a software
+problem that can be solved just by writing or
+speaking the right commands to the computer.
+The bad news is that the computer only understands Turkish.
+The people at the command center on Earth can help you but they
+only speak English.
 
+---
+
+![screenshot](./app_screenshot.png)
+
+---
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- React, Redux, Sass
+- Web API Speech Recognition
+- Argosopentech Translate API
+- React uuid
+- Jest
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://translatorastronaut.netlify.app/)
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
+
+- Clone repository to computer.
+
+```
+git clone https://github.com/luftedar/astronaut.git
+```
+
+- cd into the file
+
+```
+cd astronaut
+```
+
+- Install npm
+
+```
+npm install
+```
+
+- Start local server
+
+```
+npm start
+```
 
 ### Prerequisites
 
-### Setup
-
-### Install
-
-### Usage
+- Node (v16.13.0)
+- Npm (8.1.0)
+- Google Chrome Web Browser
 
 ### Run tests
 
-### Deployment
+- Run following to test application.
 
+```
+npm test
+```
 
 
 ## Authors
 
 👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
 
 - GitHub: [@githubhandle](https://github.com/githubhandle)
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
@@ -64,9 +98,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Thanks [AppSamurai](https://appsamurai.com/) for this greate assestment.
 
 ## 📝 License
 
