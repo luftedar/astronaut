@@ -17,9 +17,9 @@ describe('History page is working', () => {
         code: 'tr',
         name: 'Turkish',
       },
-  ],
-    loading: false,
-}
+      ],
+      loading: false,
+    };
     const tree = render(
       <Provider store={store}>
         <History languages={languages} />
