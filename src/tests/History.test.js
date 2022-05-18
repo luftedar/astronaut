@@ -6,9 +6,23 @@ import History from '../components/History';
 
 describe('History page is working', () => {
   test('Renders History', () => {
+    const languages = {
+      curretInput: 'en',
+      currentOutput: 'tr',
+      languages: [{
+        code: 'en',
+        name: 'English',
+      },
+      {
+        code: 'tr',
+        name: 'Turkish',
+      },
+      ],
+      loading: false,
+    };
     const tree = render(
       <Provider store={store}>
-        <History />
+        <History languages={languages} />
       </Provider>,
     );
     expect(tree).toMatchSnapshot();

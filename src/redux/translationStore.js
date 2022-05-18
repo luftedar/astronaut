@@ -1,4 +1,4 @@
-import postTranslationData from '../service/services';
+import * as services from '../service/services';
 
 const POST_TRANSLATION = 'POST_TRANSLATION';
 const initialState = {
@@ -6,8 +6,9 @@ const initialState = {
   mobileResult: false,
 };
 
-export const postTranslation = (englishSentence) => async (dispatch) => {
-  const turkishSentence = englishSentence !== '' && await postTranslationData(englishSentence);
+export const postTranslation = (input, output, englishSentence) => async (dispatch) => {
+  const turkishSentence = englishSentence !== ''
+  && await services.postTranslationData(input, output, englishSentence);
   dispatch({
     type: POST_TRANSLATION,
     payload: [englishSentence, turkishSentence === false ? '' : turkishSentence],
