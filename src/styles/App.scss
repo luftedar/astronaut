@@ -119,8 +119,18 @@ button {
 }
 
 .turkish-container {
+  position: relative;
+  margin-bottom: -5px;
+
+  button {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+  }
+
   @include breakpoints(1080px) {
     margin-left: 25px;
+    margin-bottom: 0;
   }
 }
 

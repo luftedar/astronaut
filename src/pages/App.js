@@ -69,7 +69,7 @@ function App() {
                 changeLanguage={changeLanguage}
                 languages={languagesState.languages}
               />
-              <TurkishText />
+              <TurkishText currentOutput={languagesState.currentOutput} />
             </div>
           </div>
           <div className="history-button">
