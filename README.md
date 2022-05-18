@@ -18,7 +18,7 @@
 - React uuid
 - Jest
 
-## Live Demo (if available)
+## Live Demo
 
 [Live Demo Link](https://translatorastronaut.netlify.app/)
 
