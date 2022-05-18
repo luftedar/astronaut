@@ -8,7 +8,9 @@ import TurkishText from '../components/TurkishText';
 import History from '../components/History';
 import '../styles/App.scss';
 import { changeInputValue } from '../redux/inputStore';
-import { changeInputLanguage, changeOutputLanguage, fetchAllLanguages } from '../redux/languagesStore';
+import {
+  changeInputLanguage, changeOutputLanguage, fetchAllLanguages,
+} from '../redux/languagesStore';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,16 +28,24 @@ function App() {
     dispatch(fetchAllLanguages());
   }, [dispatch]);
   return (
-    <div className="app">
-      <div>
-        <select
-          name="inputValue"
-          id="inputValue"
-          onChange={(e) => {
-            dispatch(changeInputLanguage(e.target.value));
-          }}
-        >
-          {
+    (languagesState.loading
+      ? (
+        <div className="loader-container">
+          <div className="loader" />
+        </div>
+      )
+      : (
+        <div className="app">
+          <div className="textarea-container">
+            <div className="english-container">
+              <select
+                name="inputValue"
+                id="inputValue"
+                onChange={(e) => {
+                  dispatch(changeInputLanguage(e.target.value));
+                }}
+              >
+                {
             languagesState.languages.map((language) => (
               <option
                 value={language.code}
@@ -45,16 +55,28 @@ function App() {
               </option>
             ))
           }
-        </select>
-        <select
-          name="outputValue"
-          id="outputValue"
-          onChange={(e) => {
-            dispatch(changeOutputLanguage(e.target.value));
-          }}
-          defaultValue="tr"
-        >
-          {
+              </select>
+              <EnglishText text={textState} />
+              <button
+                type="submit"
+                className={listeningState}
+                onClick={() => {
+                  voiceRecognition.start();
+                  setListeningState('listening');
+                }}
+              >
+                <FaMicrophone />
+              </button>
+            </div>
+            <div className="turkish-container">
+              <select
+                name="outputValue"
+                id="outputValue"
+                onChange={(e) => {
+                  dispatch(changeOutputLanguage(e.target.value));
+                }}
+              >
+                {
             languagesState.languages.map((language) => (
               (
                 <option
@@ -67,46 +89,32 @@ function App() {
               )
             ))
           }
-        </select>
-      </div>
-      <div className="textarea-container">
-        <div className="english-container">
-          <EnglishText text={textState} />
-          <button
-            type="submit"
-            className={listeningState}
-            onClick={() => {
-              voiceRecognition.start();
-              setListeningState('listening');
-            }}
-          >
-            <FaMicrophone />
-          </button>
-        </div>
-        <div className="turkish-container">
-          <TurkishText />
-        </div>
-      </div>
-      <div className="history-button">
-        <button
-          type="button"
-          onClick={() => {
-            setShowHistoryState(!showHistoryState);
-          }}
-        >
-          <GrHistory />
-        </button>
-      </div>
-      <div
-        className={
+              </select>
+              <TurkishText />
+            </div>
+          </div>
+          <div className="history-button">
+            <button
+              type="button"
+              onClick={() => {
+                setShowHistoryState(!showHistoryState);
+              }}
+            >
+              <GrHistory />
+            </button>
+          </div>
+          <div
+            className={
         showHistoryState
           ? 'history-container'
           : 'history-container show'
       }
-      >
-        <History />
-      </div>
-    </div>
+          >
+            <History />
+          </div>
+        </div>
+      )
+    )
   );
 }
 
