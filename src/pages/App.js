@@ -11,6 +11,8 @@ import { changeInputValue } from '../redux/inputStore';
 import {
   changeInputLanguage, changeOutputLanguage, fetchAllLanguages,
 } from '../redux/languagesStore';
+import Loader from '../components/Loader';
+import LanguageSelect from '../components/LanguageSelect';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,35 +29,27 @@ function App() {
   useEffect(() => {
     dispatch(fetchAllLanguages());
   }, [dispatch]);
+  const changeLanguage = (languageType, value) => {
+    if (languageType === 'inputValue') {
+      dispatch(changeInputLanguage(value));
+    } else {
+      dispatch(changeOutputLanguage(value));
+    }
+  };
   return (
     (languagesState.loading
       ? (
-        <div className="loader-container">
-          <div className="loader" />
-        </div>
+        <Loader />
       )
       : (
         <div className="app">
           <div className="textarea-container">
             <div className="english-container">
-              <select
-                name="inputValue"
-                id="inputValue"
-                onChange={(e) => {
-                  dispatch(changeInputLanguage(e.target.value));
-                }}
-              >
-                {
-            languagesState.languages.map((language) => (
-              <option
-                value={language.code}
-                key={language.code}
-              >
-                {language.name}
-              </option>
-            ))
-          }
-              </select>
+              <LanguageSelect
+                type="inputValue"
+                changeLanguage={changeLanguage}
+                languages={languagesState.languages}
+              />
               <EnglishText text={textState} />
               <button
                 type="submit"
@@ -70,27 +64,11 @@ function App() {
               </button>
             </div>
             <div className="turkish-container">
-              <select
-                name="outputValue"
-                id="outputValue"
-                onChange={(e) => {
-                  dispatch(changeOutputLanguage(e.target.value));
-                }}
-              >
-                {
-            languagesState.languages.map((language) => (
-              (
-                <option
-                  selected={language.name === 'Turkish' && true}
-                  value={language.code}
-                  key={language.code}
-                >
-                  {language.name}
-                </option>
-              )
-            ))
-          }
-              </select>
+              <LanguageSelect
+                type="outputValue"
+                changeLanguage={changeLanguage}
+                languages={languagesState.languages}
+              />
               <TurkishText />
             </div>
           </div>
