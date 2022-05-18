@@ -60,6 +60,7 @@ function App() {
               <button
                 type="submit"
                 className={listeningState}
+                disabled={languagesState.currentInput !== 'en' && true}
                 onClick={() => {
                   voiceRecognition.start();
                   setListeningState('listening');
