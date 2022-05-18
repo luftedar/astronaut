@@ -1,12 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
 import { changeInputValue } from '../redux/inputStore';
 import { postTranslation } from '../redux/translationStore';
 
-const History = () => {
+const History = ({ languages }) => {
   const dispatch = useDispatch();
   const translationHistory = useSelector((state) => state.translationReducer);
+  console.log(languages);
   return (
     <div>
       <h2> History </h2>
@@ -19,7 +21,9 @@ const History = () => {
               type="button"
               className="english-result no-button"
               onClick={(e) => {
-                dispatch(postTranslation(e.target.innerText));
+                dispatch(postTranslation(languages.currentInput,
+                  languages.currentOutput,
+                  e.target.innerText));
                 dispatch(changeInputValue(e.target.innerText));
               }}
             >
@@ -32,6 +36,18 @@ const History = () => {
       </ul>
     </div>
   );
+};
+
+History.propTypes = {
+  languages: PropTypes.shape({
+    currentInput: PropTypes.string.isRequired,
+    currentOutput: PropTypes.string.isRequired,
+    languages: PropTypes.arrayOf(PropTypes.shape({
+      code: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })),
+    loading: PropTypes.bool,
+  }).isRequired,
 };
 
 export default History;

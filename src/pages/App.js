@@ -111,7 +111,7 @@ function App() {
           : 'history-container show'
       }
           >
-            <History />
+            <History languages={languagesState} />
           </div>
         </div>
       )
