@@ -24,8 +24,6 @@ const LanguageSelect = ({
               <option
                 value={language.code}
                 key={language.code}
-                // selected={type === 'outputValue'
-                // && language.name === 'Turkish' && true}
               >
                 {language.name}
               </option>
