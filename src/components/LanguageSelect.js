@@ -1,30 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const LanguageSelect = ({
   languages, changeLanguage, type,
-}) => (
-  <select
-    name={type}
-    id={type}
-    onChange={(e) => {
-      changeLanguage(type, e.target.value);
-    }}
-  >
-    {
+}) => {
+  const [langValue, setLangValue] = useState(
+    type === 'outputValue'
+      ? 'tr'
+      : 'en',
+  );
+  return (
+    <select
+      name={type}
+      id={type}
+      onChange={(e) => {
+        changeLanguage(type, e.target.value);
+        setLangValue(e.target.value);
+      }}
+      value={langValue}
+    >
+      {
             languages.map((language) => (
               <option
                 value={language.code}
                 key={language.code}
-                selected={type === 'outputValue'
-                && language.name === 'Turkish' && true}
+                // selected={type === 'outputValue'
+                // && language.name === 'Turkish' && true}
               >
                 {language.name}
               </option>
             ))
           }
-  </select>
-);
+    </select>
+  );
+};
 
 LanguageSelect.propTypes = {
   languages: PropTypes.arrayOf(PropTypes.shape({
